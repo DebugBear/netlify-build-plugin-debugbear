@@ -1,6 +1,6 @@
 {
   "name": "netlify-build-plugin-debugbear",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automatically test each Netlify build with DebugBear",
   "main": "index.js",
   "scripts": {
