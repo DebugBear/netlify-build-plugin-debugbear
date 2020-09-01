@@ -1,0 +1,27 @@
+{
+  "name": "netlify-build-plugin-debugbear",
+  "version": "1.0.1",
+  "description": "Automatically test each Netlify build with DebugBear",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DebugBear/netlify-build-plugin-debugbear.git"
+  },
+  "keywords": [
+    "netlify",
+    "debugbear",
+    "web-performance"
+  ],
+  "author": "DebugBear",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DebugBear/netlify-build-plugin-debugbear/issues"
+  },
+  "homepage": "https://github.com/DebugBear/netlify-build-plugin-debugbear#readme",
+  "dependencies": {
+    "debugbear": "^2.0.14"
+  }
+}
