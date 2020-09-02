@@ -12,15 +12,18 @@ const {
 
 
 module.exports = {
-    async onSuccess() {
+    async onSuccess({ utils }) {
         if (!DEBUGBEAR_API_KEY) {
-            throw Error("DEBUGBEAR_API_KEY environment variable needs to be set. Learn how to generate an API key for your project here: https://www.debugbear.com/docs/getting-started-api-cli")
+            utils.build.failPlugin("DEBUGBEAR_API_KEY environment variable needs to be set. Learn how to generate an API key for your project here: https://www.debugbear.com/docs/getting-started-api-cli")
+            return
         }
         if (!DEBUGBEAR_PAGE_IDS) {
-            throw Error("DEBUGBEAR_PAGE_IDS environment variable needs to be set. Learn how to set find page IDs here: https://www.debugbear.com/docs/getting-started-api-cli#finding-the-page-id")
+            utils.build.failPlugin("DEBUGBEAR_PAGE_IDS environment variable needs to be set. Learn how to set find page IDs here: https://www.debugbear.com/docs/getting-started-api-cli#finding-the-page-id")
+            return
         }
         if (!/^[0-9,]+$/.test(DEBUGBEAR_PAGE_IDS)) {
-            throw Error(`DEBUGBEAR_PAGE_IDS needs to be a list of comma-separated numbers, but found '${DEBUGBEAR_PAGE_IDS}'`)
+            utils.build.failPlugin(`DEBUGBEAR_PAGE_IDS needs to be a list of comma-separated numbers, but found '${DEBUGBEAR_PAGE_IDS}'`)
+            return
         }
 
         const dbb = new DebugBear(DEBUGBEAR_API_KEY)
@@ -53,6 +56,6 @@ module.exports = {
             console.log(`Started DebugBear test for page ${pageId}: ${r.url}`)
         }))
 
-        console.log("DebugBear test are running, you should get results in a few minutes.")
+        console.log("DebugBear tests are running, results will be available in a few minutes.")
     }
 }

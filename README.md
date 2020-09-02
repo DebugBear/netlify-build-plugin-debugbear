@@ -10,7 +10,7 @@ You need a [DebugBear](https://www.debugbear.com) account to use this plugin.
 
 1. Install DebugBear Build Plugin
 
-```npm install netlify-build-plugin-debugbear```
+```yarn add netlify-build-plugin-debugbear```
 
 2. Add the plugin in your netlify.toml file:
 
