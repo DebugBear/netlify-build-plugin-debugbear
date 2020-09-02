@@ -44,6 +44,7 @@ module.exports = {
         if (PULL_REQUEST === "true") {
             baseUrl = DEPLOY_URL
         }
+        let pageMessages = []
         await Promise.all(pageIds.map(async pageId => {
             const r = await dbb.pages.analyze(pageId, {
                 commitHash: COMMIT_REF,
@@ -54,7 +55,13 @@ module.exports = {
                 repoOwner
             })
             console.log(`Started DebugBear test for page ${pageId}: ${r.url}`)
+            pageMessages.push(`- Page ${pageId}: ${r.url}`)
         }))
+
+        utils.status.show({
+            summary: `${pageIds.length} DebugBear tests in progress`,
+            text: pageMessages.join("\n")
+        })
 
         console.log("DebugBear tests are running, results will be available in a few minutes.")
     }
