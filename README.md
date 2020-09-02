@@ -1,6 +1,6 @@
 # DebugBear Netlify Build Plugin
 
-This Build Plugin automatically tests each Netlify deployment with DebugBear. This allows you to see how the changes you've made affect page performance and Lighthouse scores.
+This Build Plugin automatically tests each Netlify deployment with DebugBear. This allows you to see how your changes have affected page performance and Lighthouse scores.
 
 You need a [DebugBear](https://www.debugbear.com) account to use this plugin.
 
@@ -30,7 +30,7 @@ You need to set two environment variables in your [Netlify build settings](https
 
 You can find the test results in the Builds tab on DebugBear, or via the links in your Netlify build logs.
 
-![Netlify build logs](https://user-images.githubusercontent.com/1303660/91857427-cdfa4280-ec5f-11ea-9b8f-16e134f90983.png)
+![Netlify build logs](https://user-images.githubusercontent.com/1303660/91958345-22083400-ecff-11ea-867f-536e7b1b6d4a.png)
 
 ## Reporting build results to GitHub
 
