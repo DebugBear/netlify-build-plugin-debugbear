@@ -1,6 +1,6 @@
 {
   "name": "netlify-build-plugin-debugbear",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Automatically test each Netlify build with DebugBear",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "keywords": [
     "netlify",
     "debugbear",
-    "web-performance"
+    "web-performance",
+    "netlify-plugin"
   ],
   "author": "DebugBear",
   "license": "MIT",
