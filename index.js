@@ -45,18 +45,23 @@ module.exports = {
             baseUrl = DEPLOY_URL
         }
         let pageMessages = []
-        await Promise.all(pageIds.map(async pageId => {
-            const r = await dbb.pages.analyze(pageId, {
-                commitHash: COMMIT_REF,
-                commitBranch: HEAD,
-                channel: "netlify",
-                baseUrl,
-                repoName,
-                repoOwner
-            })
-            console.log(`Started DebugBear test for page ${pageId}: ${r.url}`)
-            pageMessages.push(`- Page ${pageId}: ${r.url}`)
-        }))
+        try {
+            await Promise.all(pageIds.map(async pageId => {
+                const r = await dbb.pages.analyze(pageId, {
+                    commitHash: COMMIT_REF,
+                    commitBranch: HEAD,
+                    channel: "netlify",
+                    baseUrl,
+                    repoName,
+                    repoOwner
+                })
+                console.log(`Started DebugBear test for page ${pageId}: ${r.url}`)
+                pageMessages.push(`- Page ${pageId}: ${r.url}`)
+            }))
+        } catch (err) {
+            utils.build.failPlugin(`Triggering DebugBear test failed: ${err.message}`)
+            return
+        }
 
         utils.status.show({
             summary: `${pageIds.length} DebugBear tests in progress`,
